@@ -2,29 +2,16 @@ package project
 
 import (
 	"context"
-	"go.opentelemetry.io/collector/component"
-	"go.opentelemetry.io/collector/pdata/ptrace"
+	"go.opentelemetry.io/collector/pdata/plog"
 )
-// You can change struct name
-type projectLogExporter struct{
 
-
-}
-
-func (projectExporter *projectLogExporter)Start(ctx context.Context, host component.Host)error{
-return nil
-}
-
-func (projectExporter *projectLogExporter)Shutdown(ctx context.Context)error{
-
-	return nil
-}
-
-
-func (projectExporter *projectLogExporter) ConsumeTraces(
+// No default function for this. It must be implemented
+// Note: You can change the function name if you like
+func pushLogs(
 	ctx context.Context,
-	td ptrace.Traces,
+	td plog.Logs,
 ) (err error) {
 
-}
+	return nil
 
+}

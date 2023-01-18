@@ -1,19 +1,16 @@
-
 package project
 
 import (
 	"context"
-	"go.opentelemetry.io/collector/receiver"
 	"go.opentelemetry.io/collector/component"
-
-
+	"go.opentelemetry.io/collector/consumer"
+	"go.opentelemetry.io/collector/receiver"
 )
 
 const (
 	// typeStr is the type of the receiver
 	typeStr = "project"
 )
-
 
 // NewFactory creates a receiver factory
 func NewFactory() receiver.Factory {
@@ -28,7 +25,7 @@ func NewFactory() receiver.Factory {
 		// component.StabilityLevelAlpha
 		// component.StabilityLevelBeta
 		// component.StabilityLevelStable
-		// receiver.WithMetrics(createMetricsReceiver, component.StabilityLevelBeta),
+		receiver.WithMetrics(createMetricsReceiver, component.StabilityLevelBeta),
 		// receiver.WithTraces(createTracesReceiver, component.StabilityLevelBeta),
 		// receiver.WithLogs(createLogsReceiver, component.StabilityLevelAlpha),
 	)
@@ -36,34 +33,38 @@ func NewFactory() receiver.Factory {
 
 func createDefaultConfig() component.Config {
 
-	return &Config{
-
-	}
+	return &Config{}
 }
 
-// createMetricsReceiver creates a metrics receiver based on this config.
 func createMetricsReceiver(
 	ctx context.Context,
 	set receiver.CreateSettings,
-	c component.Config,
-) (receiver.Metrics, error) {
+	cfg component.Config,
+	nextConsumer consumer.Metrics,
+) (receiver receiver.Metrics, err error) {
 
-	
-}
-
-// createTracesReceiver creates a trace receiver based on this config.
-func  createTracesReceiver(
-	ctx context.Context,
-	set receiver.CreateSettings,
-	c component.Config,
-) (receiver.Traces, error) {
+	return receiver, err
 
 }
 
-func  createLogsReceiver(
+func createTracesReceiver(
 	ctx context.Context,
 	set receiver.CreateSettings,
-	c component.Config,
-) (receiver.Logs, error) {
+	cfg component.Config,
+	nextConsumer consumer.Metrics,
+) (receiver receiver.Metrics, err error) {
+
+	return receiver, err
+
+}
+
+func createLogsReceiver(
+	ctx context.Context,
+	set receiver.CreateSettings,
+	cfg component.Config,
+	nextConsumer consumer.Metrics,
+) (receiver receiver.Metrics, err error) {
+
+	return receiver, err
 
 }

@@ -2,34 +2,14 @@ package project
 
 import (
 	"context"
-
-	"go.opentelemetry.io/collector/component"
-	"go.opentelemetry.io/collector/consumer"
-	"go.opentelemetry.io/collector/pdata/ptrace"
+	"go.opentelemetry.io/collector/pdata/pmetric"
 )
-// You can change struct name
-type projectMetricProcessor struct{
 
-
-}
-
-func (projectMetricProcessor *projectMetricProcessor)Start(ctx context.Context, host component.Host)error{
-
-}
-
-func (projectMetricProcessor *projectMetricProcessor)Shutdown(ctx context.Context)error{
-	return nil
-}
-
-
-func (projectMetricProcessor *projectMetricProcessor) consumeTraces(
+func processMetrics(
 	ctx context.Context,
-	td ptrace.Traces,
-) (err error) {
+	pm pmetric.Metrics,
+) (mt pmetric.Metrics, err error) {
+
+	return mt, nil
 
 }
-
-func (projectMetricProcessor *projectMetricProcessor) Capabilities() consumer.Capabilities {
-
-}
-
