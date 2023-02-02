@@ -10,11 +10,11 @@ import (
 type log struct {
 }
 
-func (comp *log) logStart(ctx context.Context, host component.Host) error {
+func (comp *log) Start(ctx context.Context, host component.Host) error {
 	return nil
 
 }
 
-func (comp *log) logShutdown(ctx context.Context) error {
+func (comp *log) Shutdown(ctx context.Context) error {
 	return nil
 }
